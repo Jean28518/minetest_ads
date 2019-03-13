@@ -1,3 +1,6 @@
+-- If you dont want the pink color, comment Line 2 And uncomment Line 3:
+violett = minetest.get_color_escape_sequence("#9022A7")
+-- violett = minetest.get_color_escape_sequence("#FFFFFF")
 -- If you want only use one language, then use the second language (ads_table_2) This is the default one
 local FIRST_LANGAUGE = "de"
 local SECOND_LANGUAGE = "en"
@@ -41,9 +44,9 @@ minetest.register_globalstep(function(dtime)
     for _, player in pairs(minetest.get_connected_players()) do
       pmeta = player:get_meta()
       if pmeta:get_string("ads_language") == FIRST_LANGAUGE then
-        minetest.chat_send_player(player:get_player_name(), ads_table_1[counter])
+        minetest.chat_send_player(player:get_player_name(), violett .. ads_table_1[counter])
       else
-        minetest.chat_send_player(player:get_player_name(), ads_table_2[counter])
+        minetest.chat_send_player(player:get_player_name(), violett .. ads_table_2[counter])
       end
     end
     delta = 0
